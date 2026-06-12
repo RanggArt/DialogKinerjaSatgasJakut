@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dialog Kinerja Satgas Damkar – Kelurahan Sukapura</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+<div class="page-header">
+  <img src="images/logo.png" alt="Logo Damkar" class="header-logo-img">
+  <div>
+    <h1>Dialog Kinerja Satuan Tugas Pemadam Kebakaran</h1>
+    <p id="header-sub">Kelurahan Sukapura &nbsp;·&nbsp; Kecamatan Cilincing &nbsp;·&nbsp; Kota Administrasi Jakarta Utara</p>
+  </div>
+</div>
+
+<div class="toolbar">
+  <div class="toolbar-group">
+    <label for="input-bulan">Bulan Penilaian</label>
+    <input type="month" id="input-bulan" onchange="updateHeader()" />
+  </div>
+  <div class="toolbar-sep"></div>
+  <div class="toolbar-group">
+    <label for="sel-periode">Periode</label>
+    <select id="sel-periode" onchange="updateHeader()">
+      <option value="1">Periode 1</option>
+      <option value="2">Periode 2</option>
+    </select>
+  </div>
+  <div class="toolbar-sep"></div>
+  <div class="toolbar-group">
+    <label for="sel-kecamatan">Kecamatan</label>
+    <select id="sel-kecamatan" onchange="onKecamatanChange()">
+      <option value="">-- Pilih Kecamatan --</option>
+    </select>
+  </div>
+  <div class="toolbar-group">
+    <label for="sel-kelurahan">Kelurahan</label>
+    <select id="sel-kelurahan" onchange="onKelurahanChange()" disabled>
+      <option value="">-- Pilih Kelurahan --</option>
+    </select>
+  </div>
+</div>
+
+<div class="tabel-container">
+  <table>
+    <thead>
+      <tr>
+        <th class="col-no">No</th>
+        <th class="col-indikator">Indikator Kinerja</th>
+        <th class="col-rencana">Rencana Aksi</th>
+        <th class="col-kriteria">Kriteria & Output</th>
+        <th class="col-lampiran">Lampiran Foto</th>
+        <th class="col-cetak">Cetak Bukti</th>
+      </tr>
+    </thead>
+    <tbody id="tabel-body">
+      </tbody>
+  </table>
+</div>
+
+<footer class="page-footer">
+  <div class="footer-content">
+    <img src="images/ranggariswanto.jpg" alt="Rangga Riswanto" class="footer-avatar" onclick="bukaFotoProfil('images/ranggariswanto.jpg')">
+    <div class="footer-text">
+      <span class="footer-label">Dirancang dan dibangun oleh:</span>
+      <span class="footer-name">Rangga Riswanto</span>
+      <span class="footer-label">Khairun naasi anfa'uhum lin-naas.</p>"Sebaik-baik manusia adalah yang paling bermanfaat bagi manusia lainnya."</span>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal-box" id="modal-box">
+    <div class="modal-toolbar" id="modal-title-bar">
+      <span id="modal-title-text">Preview Bukti Dukung</span>
+      <div style="display:flex;gap:8px;">
+        <button class="btn-print" id="btn-modal-print" onclick="cetakDokumen()">🖨 Cetak / Simpan PDF</button>
+        <button class="btn-tutup" onclick="tutupModal()">Tutup</button>
+      </div>
+    </div>
+    <div id="dokumen-cetak">
+      </div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
